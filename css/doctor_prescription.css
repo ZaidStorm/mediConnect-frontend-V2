@@ -146,3 +146,57 @@ border-radius: 3px;
 from {opacity: 0; transform: translateY(-5px);}
 to {opacity: 1; transform: translateY(0);}
 }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .prescription-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .bio-prescriptions {
+    flex-direction: column;
+  }
+
+  .bio-section,
+  .previous-prescriptions {
+    width: 100%;
+  }
+
+  .previous-prescriptions {
+    max-height: 250px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .action-buttons button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .prescription-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .collapsible-header {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

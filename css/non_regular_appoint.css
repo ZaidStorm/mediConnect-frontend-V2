@@ -1,269 +1,153 @@
-/* ========================================
-   MediConnect - Non-Regular Appointment Form
-   Soft UI with Animations (Orange/Amber theme)
-======================================== */
-
-.appointment-page {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 50%, #fefce8 100%);
-  position: relative;
-  overflow: hidden;
+/* ------------------------ General Reset ------------------------ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Animated background shapes */
-.appointment-page::before,
-.appointment-page::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  animation: float 8s ease-in-out infinite;
+body {
+    background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 10px;
+    color: #333;
 }
 
-.appointment-page::before {
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(251, 191, 36, 0.08));
-  top: -100px;
-  right: -100px;
-  animation-delay: 0s;
+/* ------------------------ Container & Heading ------------------------ */
+.container {
+    max-width: 500px;
+    width: 100%;
 }
 
-.appointment-page::after {
-  width: 300px;
-  height: 300px;
-  background: linear-gradient(135deg, rgba(217, 119, 6, 0.08), rgba(252, 211, 77, 0.08));
-  bottom: -80px;
-  left: -80px;
-  animation-delay: 2s;
+h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #222;
 }
 
-.appointment-container {
-  width: 100%;
-  max-width: 480px;
-  position: relative;
-  z-index: 10;
-  animation: fadeInUp 0.8s ease-out;
+/* ------------------------ Card ------------------------ */
+.card-custom {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.appointment-card {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 24px;
-  padding: 2.5rem;
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.08),
-    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+.card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
 }
 
-.appointment-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 
-    0 35px 60px -15px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+/* ------------------------ Form Elements ------------------------ */
+.form-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+    color: #444;
 }
 
-.appointment-header {
-  text-align: center;
-  margin-bottom: 2rem;
+.form-control, .form-select {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.9);
 }
 
-.appointment-icon {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.25rem;
-  font-size: 1.75rem;
-  color: white;
-  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
-  animation: pulse 2s ease-in-out infinite;
+.form-control:focus, .form-select:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
 
-.appointment-icon::before {
-  content: '🚶';
+/* ------------------------ Button ------------------------ */
+.btn-success {
+    background: #4caf50;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.appointment-header h2 {
-  font-size: 1.5rem;
-  color: #92400e;
-  margin-bottom: 0.25rem;
+.btn-success:hover {
+    background: #45a049;
+    box-shadow: 0 5px 15px rgba(72, 175, 76, 0.4);
 }
 
-.appointment-header p {
-  color: #64748b;
-  font-size: 0.875rem;
+/* ------------------------ Modal Glassy Effect ------------------------ */
+#bookingModal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
 }
 
-.form-group {
-  margin-bottom: 1.25rem;
-  animation: fadeInUp 0.6s ease-out both;
-}
-
-.form-group:nth-child(1) { animation-delay: 0.1s; }
-.form-group:nth-child(2) { animation-delay: 0.15s; }
-.form-group:nth-child(3) { animation-delay: 0.2s; }
-.form-group:nth-child(4) { animation-delay: 0.25s; }
-.form-group:nth-child(5) { animation-delay: 0.3s; }
-
-.form-group label {
-  font-weight: 500;
-  color: #334155;
-  margin-bottom: 0.5rem;
-  display: block;
-  font-size: 0.9rem;
-}
-
-.form-group input,
-.form-group select {
-  width: 100%;
-  padding: 0.9rem 1.1rem;
-  font-size: 0.95rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  background: #f8fafc;
-  transition: all var(--transition-normal);
-  outline: none;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-  border-color: #f59e0b;
-  background: white;
-  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
-}
-
-.form-group input::placeholder {
-  color: #94a3b8;
-}
-
-.form-group select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.5rem;
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: white;
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.35);
-  margin-top: 0.75rem;
-  animation: fadeInUp 0.6s ease-out 0.35s both;
-}
-
-.submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(245, 158, 11, 0.45);
-}
-
-.submit-btn:active {
-  transform: translateY(-1px);
-}
-
-.form-footer {
-  text-align: center;
-  margin-top: 1.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid #e2e8f0;
-  animation: fadeIn 0.6s ease-out 0.4s both;
-}
-
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #64748b;
-  font-size: 0.875rem;
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.back-link:hover {
-  color: #f59e0b;
-}
-
-.back-link::before {
-  content: '←';
-}
-
-/* Modal Styles */
-.booking-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease-out;
-}
-
-.booking-modal.active {
-  display: flex;
-}
-
-.modal-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 20px;
-  text-align: center;
-  max-width: 400px;
-  animation: scaleIn 0.3s ease-out;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
-
-.modal-content h3 {
-  color: #f59e0b;
-  margin-bottom: 0.5rem;
-}
-
-.modal-content p {
-  color: #64748b;
+#bookingModalContent {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 25px 20px;
+    border-radius: 12px;
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  color: #94a3b8;
-  cursor: pointer;
-  transition: color var(--transition-fast);
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+    transition: all 0.2s ease;
 }
 
 .close-btn:hover {
-  color: #ef4444;
+    color: #000;
 }
 
-@media (max-width: 480px) {
-  .appointment-card {
-    padding: 1.5rem;
-  }
-  
-  .appointment-header h2 {
-    font-size: 1.25rem;
+/* ------------------------ Responsive ------------------------ */
+@media (max-width: 576px) {
+    .card-custom {
+        padding: 20px 15px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .btn-success {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+/* Performance: disable heavy animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patient Dashboard | MediConnect</title>
 
   <link href="../css/patient_dashboard.css" rel="stylesheet">
 </head>
 
 <body class="dashboard-page">
+
+<!-- Mobile hamburger button -->
+<button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+<!-- Sidebar overlay (dims content when sidebar open on mobile) -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <!-- ================= SIDEBAR ================= -->
 <div class="sidebar">
@@ -167,6 +173,28 @@
 </div>
 
 <script src="../js/patient_dashboard.js"></script>
-
+<script>
+  // Sidebar hamburger toggle
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var sidebar = document.querySelector('.sidebar');
+    var overlay = document.getElementById('sidebarOverlay');
+    if (!toggle) return;
+    toggle.addEventListener('click', function(){
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    });
+    overlay.addEventListener('click', function(){
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+    });
+    document.querySelectorAll('.sidebar .nav-item').forEach(function(item){
+      item.addEventListener('click', function(){
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+      });
+    });
+  })();
+</script>
 </body>
 </html>

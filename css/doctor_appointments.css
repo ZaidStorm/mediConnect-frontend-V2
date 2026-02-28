@@ -3,6 +3,11 @@
    Soft UI with Animations (Blue theme)
 ======================================== */
 
+:root {
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+}
+
 .appointments-page {
   min-height: 100vh;
   background: #f1f5f9;
@@ -335,5 +340,13 @@
   .action-btn {
     flex: 1;
     justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
