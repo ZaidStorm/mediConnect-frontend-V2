@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Walk-in Appointment</title>
+  <link href="../css/walkin_appointment.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body class="appointment-page">
+
+<div class="container mt-5">
+  <h2 class="mb-4">Walk-in Appointment</h2>
+
+  <div class="card p-4 card-custom">
+
+    <div class="mb-3">
+      <label class="form-label">Patient Name</label>
+      <input type="text" class="form-control" id="patientName" placeholder="Enter your full name">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Phone Number</label>
+      <input type="tel" class="form-control" id="patientPhone" placeholder="92-xxx-xxxxxxx">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Doctor Type</label>
+      <select class="form-select" id="doctorId">
+        <option value="Skin Specialist">Skin Specialist</option>
+        <option value="Dental Specialist">Dental Specialist</option>
+        <option value="Nutrition Specialist">Nutrition Specialist</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Preferred Date</label>
+      <input type="date" class="form-control" id="appointmentDate">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Preferred Time</label>
+      <select class="form-select" id="appointmentTime">
+        <option value="">Select Time Slot</option>
+      </select>
+    </div>
+
+    <button class="btn btn-success w-100" onclick="bookAppointment()">Register Walk-in & Download Slip</button>
+
+  </div>
+</div>
+
+<!-- Glassy Booking Modal -->
+<div id="bookingModal">
+  <div id="bookingModalContent">
+    <span class="close-btn" onclick="closeBookingModal()">×</span>
+    <p>Appointment booked! Your slip is downloading...</p>
+  </div>
+</div>
+
+<script src="../js/non_regular_appoint.js"></script>
+</body>
+</html>

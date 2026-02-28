@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Appointments</title>
+  <link href="../css/admin_today_appointment.css" rel="stylesheet">
+</head>
+<body class="dashboard admin-today-appt-page">
+
+<div class="container mt-5">
+  <!-- TEST BUTTON: Remove all appointments (for testing 24h auto-removal) -->
+  <div class="mb-3">
+    <button id="testRemoveAllAppointmentsBtn" class="btn btn-danger">
+      Test 25h Removal (Delete All Appointments)
+    </button>
+    <span class="text-danger ms-2" style="font-size: 0.9em;">[Test Only - will be removed in production]</span>
+  </div>
+  <h2>Appointments</h2>
+
+  <!-- Regular Appointments Section -->
+  <h3 class="mt-5">Regular Patient Appointments</h3>
+  <div class="card p-4 mt-4">
+    <div class="row mb-3">
+      <div class="col-md-8">
+        <input id="regularSearchInput" type="text" class="form-control" placeholder="Enter Patient ID">
+      </div>
+      <div class="col-md-2">
+        <button id="regularSearchBtn" class="btn btn-info w-100">Search</button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Patient ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="adminAppointmentsTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Non-Regular Appointments Section -->
+  <h3 class="mt-5">Non-Regular Patient Appointments</h3>
+  <div class="card p-4 mt-4">
+    <div class="row mb-3">
+      <div class="col-md-8">
+        <input id="nonRegularSearchInput" type="text" class="form-control" placeholder="Enter Patient ID">
+      </div>
+      <div class="col-md-2">
+        <button id="nonRegularSearchBtn" class="btn btn-info w-100">Search</button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Patient ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="nonRegularAppointmentsTable"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="../js/admin.js"></script>
+
+<script>
+// Generalized test removal: delete all appointments (regular and non-regular)
+document.addEventListener("DOMContentLoaded", function() {
+  var btn = document.getElementById("testRemoveAllAppointmentsBtn");
+  if (btn) {
+    btn.addEventListener("click", function() {
+      if (confirm("This will delete ALL appointments (regular and non-regular) for testing. Continue?")) {
+        localStorage.removeItem("appointments");
+        localStorage.removeItem("nonRegularAppointments");
+        if (typeof renderAdminAppointments === 'function') renderAdminAppointments();
+        if (typeof renderNonRegularAppointments === 'function') renderNonRegularAppointments();
+        if (typeof loadDashboardCounts === 'function') loadDashboardCounts();
+        alert("All appointments deleted for test. (24h auto-removal simulation)");
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>

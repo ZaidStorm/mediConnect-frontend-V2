@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Uploaded Report</title>
+  <link href="../css/edit_uploaded_file.css" rel="stylesheet">
+</head>
+<body class="edit-file-page">
+
+<div class="container mt-5">
+  <h3>Edit Uploaded Report</h3>
+
+  <div class="card p-4 mt-3">
+
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <input type="text" id="editCategory" class="form-control" readonly>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Current File</label>
+      <div id="currentFilePreview"></div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Replace File</label>
+      <input type="file" id="replaceFile" class="form-control" accept="image/*">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">New File Preview</label>
+      <div id="newFilePreview">No file selected</div>
+    </div>
+
+    <button class="btn btn-primary w-100" id="saveBtn">
+      Save Changes
+    </button>
+
+  </div>
+</div>
+
+<!-- External JS -->
+<script src="../js/edit_uploaded_file.js"></script>
+
+</body>
+</html>

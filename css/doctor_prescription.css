@@ -1,0 +1,148 @@
+/* General Body Styles */
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+margin: 0;
+padding: 0;
+background: linear-gradient(135deg, #e3f2fd, #e1f5fe, #f1faff);
+color: #333;
+}
+
+/* Prescription Container */
+.prescription-container {
+max-width: 1000px;
+margin: 2rem auto;
+padding: 2rem;
+background: #ffffffcc; /* semi-transparent white */
+border-radius: 12px;
+box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+}
+
+/* Header */
+.prescription-header {
+text-align: center;
+border-bottom: 2px solid #90caf9;
+padding-bottom: 1rem;
+margin-bottom: 1rem;
+}
+.prescription-header h2 {
+margin: 0;
+color: #1976d2;
+}
+.prescription-header p {
+margin: 0;
+font-style: italic;
+color: #555;
+}
+
+/* Bio and Previous Prescriptions */
+.bio-prescriptions {
+display: flex;
+gap: 1rem;
+}
+.bio-section, .previous-prescriptions {
+background: #f9faff;
+padding: 1rem;
+border-radius: 8px;
+box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
+.bio-section input, .bio-section select {
+width: 100%;
+padding: 0.5rem;
+margin-bottom: 0.5rem;
+border: 1px solid #ccc;
+border-radius: 6px;
+}
+.bio-section label {
+display: block;
+margin-bottom: 0.5rem;
+font-size: 0.9rem;
+}
+.previous-prescriptions {
+max-height: 400px;
+overflow-y: auto;
+border: 1px solid #ccc;
+}
+.previous-prescriptions h3 {
+margin-top: 0;
+margin-bottom: 0.5rem;
+color: #1976d2;
+}
+
+/* Collapsible Sections */
+.collapsible-section {
+border: 1px solid #90caf9;
+border-radius: 8px;
+overflow: hidden;
+background: #f5faff;
+}
+.collapsible-header {
+background: #1976d2;
+color: #fff;
+padding: 0.75rem 1rem;
+cursor: pointer;
+user-select: none;
+font-size: 1.05rem;
+}
+.collapsible-header:hover {
+background: #1565c0;
+}
+.collapsible-content {
+padding: 1rem;
+display: block;
+animation: fadeIn 0.3s ease-in-out;
+}
+.collapsible-content input,
+.collapsible-content textarea,
+.collapsible-content select {
+width: 100%;
+padding: 0.5rem;
+margin-bottom: 0.5rem;
+border: 1px solid #ccc;
+border-radius: 6px;
+font-size: 0.95rem;
+}
+.collapsible-content h4 {
+margin-bottom: 0.5rem;
+color: #1976d2;
+}
+
+/* Buttons */
+button {
+padding: 0.6rem 1.2rem;
+border: none;
+border-radius: 6px;
+background: #1976d2;
+color: #fff;
+cursor: pointer;
+font-size: 0.95rem;
+transition: 0.2s;
+}
+button:hover {
+background: #1565c0;
+}
+.action-buttons {
+display: flex;
+gap: 1rem;
+justify-content: flex-end;
+}
+#addMedicineBtn {
+margin-bottom: 0.5rem;
+}
+
+/* Scrollbars for Previous Prescriptions */
+.previous-prescriptions::-webkit-scrollbar {
+width: 6px;
+}
+.previous-prescriptions::-webkit-scrollbar-thumb {
+background-color: #90caf9;
+border-radius: 3px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+from {opacity: 0; transform: translateY(-5px);}
+to {opacity: 1; transform: translateY(0);}
+}

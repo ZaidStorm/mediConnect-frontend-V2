@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | MediConnect</title>
+    <link rel="stylesheet" href="../css/admin_dashboard.css">
+</head>
+<body class="dashboard-page">
+
+<!-- ================= SIDEBAR ================= -->
+<div class="sidebar">
+    <a href="#" class="sidebar-brand">
+        <span>MediConnect</span>
+    </a>
+
+    <div class="sidebar-nav">
+        <a href="#" class="nav-item active">
+            <span class="nav-item-icon">🏠</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="today_appointment.html" class="nav-item">
+            <span class="nav-item-icon">📅</span>
+            <span>Appointments</span>
+        </a>
+
+        <a href="feedback.html" class="nav-item">
+            <span class="nav-item-icon">💬</span>
+            <span>Feedbacks</span>
+        </a>
+
+        <a href="patient_report.html" class="nav-item">
+            <span class="nav-item-icon">📄</span>
+            <span>Reports</span>
+        </a>
+
+        <a href="analytics.html" class="nav-item">
+            <span class="nav-item-icon">📊</span>
+            <span>Analytics</span>
+        </a>
+    </div>
+
+    <div class="sidebar-footer">
+        <button class="logout-btn" onclick="logout()">
+            <span>🚪</span>
+            <span>Logout</span>
+        </button>
+    </div>
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
+<div class="main-content">
+
+    <!-- Header -->
+    <div class="page-header">
+        <h1 class="page-title">Welcome, <span>Admin</span></h1>
+
+        <div class="user-info">
+            <div class="user-avatar">A</div>
+        </div>
+    </div>
+
+    <!-- Dashboard Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-value" id="totalAppointments">0</div>
+                    <div class="stat-label">Total Appointments</div>
+                </div>
+                <div class="stat-icon primary">📅</div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-value" id="totalFeedbacks">0</div>
+                    <div class="stat-label">Total Feedbacks</div>
+                </div>
+                <div class="stat-icon info">💬</div>
+            </div>
+
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-value" id="totalReports">0</div>
+                    <div class="stat-label">Total Reports</div>
+                </div>
+                <div class="stat-icon success">📄</div>
+            </div>
+
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-label">Analytics</div>
+                </div>
+                <div class="stat-icon warning">📊</div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="../js/admin.js"></script>
+</body>
+</html>

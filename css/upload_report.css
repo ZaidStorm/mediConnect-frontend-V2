@@ -1,0 +1,217 @@
+/* =========================
+   Upload Reports Page
+=========================== */
+
+body.upload-report-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e7fde3, #e1fee7, #f1faff);
+    color: #1e293b;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+h2 {
+    text-align: center;
+    color: #2ecc71;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+/* Card */
+.card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+/* Labels */
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #475569;
+}
+
+/* Select & File Input */
+.form-select,
+.form-control[type="file"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.form-select:focus,
+.form-control[type="file"]:focus {
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.15);
+    outline: none;
+}
+
+/* Buttons */
+button.btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: #2ecc71;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+}
+
+.btn-cancel {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: #64748b;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background: #475569;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(100, 116, 139, 0.4);
+    color: #fff;
+}
+
+/* File Thumbnails - card grid */
+#filePreview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.report-thumb-card {
+    width: 120px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.report-thumb-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(46,204,113,0.2);
+}
+.thumb-image-wrap {
+    width: 120px;
+    height: 100px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #f0fdf4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.report-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.thumb-label {
+    font-size: 0.7rem;
+    color: #065f46;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 5px;
+    background: #f0fdf4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.thumb-actions {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+.thumb-btn {
+    width: 100%;
+    font-size: 0.7rem;
+    padding: 3px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+}
+.thumb-btn-delete {
+    background: #ef4444;
+    color: #fff;
+}
+.thumb-btn-delete:hover { background: #dc2626; }
+}
+
+/* Modal */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1rem;
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #475569;
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    color: #2ecc71;
+}
+
+/* Responsive */
+@media(max-width: 600px){
+    .card {
+        padding: 1.5rem;
+    }
+    #filePreview img {
+        width: 80px;
+        height: 80px;
+    }
+}

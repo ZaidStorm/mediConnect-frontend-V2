@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Regular Appointment</title>
+  <link href="../css/regular_appointment.css" rel="stylesheet">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Regular Appointment</h2>
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label for="patientName">Patient Name</label>
+        <input type="text" id="patientName" class="form-input" placeholder="Enter your full name">
+      </div>
+
+      <div class="form-group">
+        <label for="patientPhone">Phone Number</label>
+        <input type="tel" id="patientPhone" class="form-input" placeholder="92-xxx-xxxxxxx">
+      </div>
+
+      <div class="form-group">
+        <label for="doctorId">Doctor Type</label>
+        <select id="doctorId" class="form-input">
+          <option value="Skin Specialist">Skin Specialist</option>
+          <option value="Dental Specialist">Dental Specialist</option>
+          <option value="Nutrition Specialist">Nutrition Specialist</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="appointmentDate">Preferred Date</label>
+        <input type="date" id="appointmentDate" class="form-input">
+      </div>
+
+      <div class="form-group">
+        <label for="appointmentTime">Preferred Time</label>
+        <select id="appointmentTime" class="form-input">
+          <option value="">Select Time Slot</option>
+        </select>
+      </div>
+
+      <!-- Added Textarea for Notes -->
+      <div class="form-group">
+        <label for="appointmentNotes">Additional Notes</label>
+        <textarea id="appointmentNotes" class="form-textarea" placeholder="Any notes or comments..."></textarea>
+      </div>
+
+      <button onclick="bookAppointment()">Request Appointment</button>
+
+    </div>
+  </div>
+
+  <script src="../js/regular_appointment.js"></script>
+</body>
+</html>

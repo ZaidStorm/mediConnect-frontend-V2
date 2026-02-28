@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prescription - MediConnect</title>
+  <link rel="stylesheet" href="../css/doctor_prescription.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div class="prescription-container">
+
+  <header class="prescription-header">
+      <h2>MediConnect Clinic</h2>
+      <p>Doctor Prescription</p>
+  </header>
+
+   <input id="patientIdInput" type="text" placeholder="Enter Patient ID">
+   <label><input type="checkbox" id="nonRegularPatient"> Non-Regular Patient</label>
+
+  <!-- Bio + Previous Prescriptions (Side by Side) -->
+  <section class="bio-prescriptions" style="display:flex; gap:1rem;">
+      <div class="bio-section" style="flex:1;">
+          <h3>Patient Bio</h3>
+          <input id="patientName" type="text" placeholder="Name">
+          <input id="patientAge" type="number" placeholder="Age">
+          <select id="patientGender">
+              <option value="">Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+          </select>
+          <input id="patientWeight" type="text" placeholder="Weight (kg)">
+      </div>
+
+      <div class="previous-prescriptions" style="flex:1; max-height:400px; overflow-y:auto; border:1px solid #ccc; padding:0.5rem; border-radius:6px;">
+          <h3>Previous Prescriptions</h3>
+          <div id="previousPrescriptionList">
+              <!-- Populated by JS -->
+          </div>
+      </div>
+  </section>
+
+  <!-- Complaints -->
+  <section class="collapsible-section">
+      <h3 class="collapsible-header">Complaints</h3>
+      <div class="collapsible-content">
+          <textarea id="complaints" placeholder="Patient complaints"></textarea>
+      </div>
+  </section>
+
+  <!-- Examination -->
+  <section class="collapsible-section">
+      <h3 class="collapsible-header">Examination</h3>
+      <div class="collapsible-content">
+          <h4>Vitals</h4>
+          <input id="vitalBP" type="text" placeholder="BP (e.g. 120/80)">
+          <input id="vitalPulse" type="text" placeholder="Pulse">
+          <input id="vitalTemp" type="text" placeholder="Temperature">
+          <input id="vitalRR" type="text" placeholder="Respiratory Rate">
+          <input id="vitalSPO2" type="text" placeholder="SPO2">
+
+          <h4>GPE</h4>
+          <input id="gpeInput" type="text" placeholder="Start typing GPE..." list="gpeList">
+          <datalist id="gpeList"></datalist>
+
+          <h4>Systemic Examination (SE)</h4>
+          <textarea id="seInput" placeholder="SE details"></textarea>
+      </div>
+  </section>
+
+  <!-- Pre-Diagnosis -->
+  <section class="collapsible-section">
+      <h3 class="collapsible-header">Pre-Diagnosis</h3>
+      <div class="collapsible-content">
+          <textarea id="preDiagnosis" placeholder="Pre-diagnosis before labs"></textarea>
+      </div>
+  </section>
+
+  <!-- Lab Reports -->
+  <section class="collapsible-section">
+      <h3 class="collapsible-header">Lab Reports</h3>
+      <div class="collapsible-content">
+          <input id="labFileInput" type="file" multiple>
+          <div id="labReportsContainer"></div>
+      </div>
+  </section>
+
+  <!-- Post-Diagnosis -->
+  <section class="collapsible-section">
+      <h3 class="collapsible-header">Post-Diagnosis</h3>
+      <div class="collapsible-content">
+          <textarea id="postDiagnosis" placeholder="Post-diagnosis after labs"></textarea>
+      </div>
+  </section>
+
+  <!-- Treatment / Medicines -->
+  <section class="collapsible-section">
+      <h3 class="collapsible-header">Treatment / Medicines</h3>
+      <div class="collapsible-content">
+          <button id="addMedicineBtn">+ Add Medicine</button>
+          <div id="medicineContainer"></div>
+      </div>
+  </section>
+
+  <!-- Follow-up -->
+  <section class="collapsible-section">
+      <h3 class="collapsible-header">Follow-up</h3>
+      <div class="collapsible-content">
+          <input id="followUp" type="text" placeholder="Follow-up instructions">
+      </div>
+  </section>
+
+  <!-- Action Buttons -->
+  <section class="action-buttons">
+      <button id="savePrescriptionBtn">Save Prescription</button>
+      <button onclick="navigateTo('doctor_dashboard.html')">Back to Dashboard</button>
+  </section>
+
+</div>
+
+<script src="../js/doctor.js"></script>
+</body>
+</html>

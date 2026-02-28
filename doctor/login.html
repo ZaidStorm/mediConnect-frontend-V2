@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Login</title>
+  <link href="../css/doctor_login.css" rel="stylesheet">
+</head>
+<body data-role="doctor" class="login-page">
+
+<div class="hero login-hero">
+  <div class="card card-custom">
+    <div class="login-header">
+      <div class="login-icon"></div>
+      <h3>Doctor Login</h3>
+      <p>Access your doctor portal securely</p>
+    </div>
+
+    <div class="form-group">
+      <input id="email" type="email" class="form-control" placeholder="Email">
+    </div>
+
+    <div class="form-group">
+      <input id="password" type="password" class="form-control" placeholder="Password">
+    </div>
+
+    <button id="loginBtn" class="login-btn">Login</button>
+
+  </div>
+</div>
+
+<script src="../js/login.js"></script>
+<script>
+  document.getElementById("loginBtn").addEventListener("click", () => handleLogin("doctor"));
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Reports</title>
+  <link href="../css/upload_report.css" rel="stylesheet">
+</head>
+<body class="upload-report-page">
+<div class="container mt-5">
+  <h2>Upload Reports <span id="fileCounter" style="font-size:1rem;color:#64748b;">(0 / 6)</span></h2>
+
+  <div class="card p-4 mt-3">
+
+    <!-- Category Selection -->
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <select id="category" class="form-select">
+        <option value="Medical Report">Medical Report</option>
+        <option value="Scans">Scans</option>
+        <option value="Prescription">Prescription</option>
+      </select>
+    </div>
+
+    <!-- File Input -->
+    <div class="mb-3">
+      <label class="form-label">Select Files <span style="color:#94a3b8;font-weight:400;">(max 6 total)</span></label>
+      <input type="file" id="fileInput" class="form-control" multiple accept="image/*">
+    </div>
+
+    <!-- Thumbnail Preview -->
+    <div id="filePreview" class="report-thumb-grid"></div>
+
+    <!-- Buttons -->
+    <div class="d-flex gap-2 mt-3">
+      <button class="btn btn-primary" onclick="uploadFiles()">Upload to Dashboard</button>
+      <a href="dashboard.html" class="btn-cancel">Cancel</a>
+    </div>
+
+  </div>
+
+</div>
+
+<div hidden><!-- Image Preview Modal -->
+<div id="imageModal" class="modal-overlay">
+  <div class="modal-content text-center">
+    <span class="modal-close" onclick="closeModal()">×</span>
+    <img id="modalImage" style="max-width:100%; max-height:400px;">
+  </div>
+</div>
+</div>
+<script src="../js/upload_report.js"></script>
+</body>
+</html>

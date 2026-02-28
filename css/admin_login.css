@@ -1,0 +1,191 @@
+/* ========================================
+   Admin Login - Same structure as Patient & Doctor
+   Glass Card + Animated Gradient Background
+======================================== */
+
+body.login-page {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  color: #033;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #f3e5f5, #e1bee7, #ede7f6);
+  background-size: 400% 400%;
+  animation: bgShift 15s ease infinite;
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero.login-hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.hero.login-hero::before,
+.hero.login-hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: float 12s ease-in-out infinite;
+}
+
+.hero.login-hero::before {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(156,39,176,0.2) 0%, transparent 70%);
+  top: -150px;
+  right: -150px;
+}
+
+.hero.login-hero::after {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(103,58,183,0.15) 0%, transparent 70%);
+  bottom: -120px;
+  left: -120px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(30deg); }
+}
+
+.card.card-custom {
+  width: 350px;
+  max-width: 90%;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.5) inset;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.card-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 35px 60px -15px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.5) inset;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, #9c27b0, #673ab7);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0 5px 20px rgba(156,39,176,0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.login-icon::before {
+  content: '🛡️';
+}
+
+.login-header h3 {
+  margin: 0;
+  color: #4a148c;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.login-header p {
+  margin: 0.5rem 0 0;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  font-size: 1rem;
+  border: 2px solid #d1c4e9;
+  border-radius: 12px;
+  background: #f3e5f5;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #9c27b0;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(156,39,176,0.1);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(45deg, #9c27b0, #673ab7);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(156,39,176,0.35);
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(156,39,176,0.45);
+}
+
+.login-btn:active {
+  transform: translateY(-1px);
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.login-footer a {
+  color: #9c27b0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.login-footer a:hover {
+  color: #673ab7;
+  text-decoration: underline;
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@media (max-width: 480px) {
+  .card.card-custom { padding: 2rem 1.5rem; }
+  .login-header h3 { font-size: 1.3rem; }
+}

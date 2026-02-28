@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Provide Feedback</title>
+  <link href="../css/patient_feedback.css" rel="stylesheet">
+</head>
+<body class="feedback-page">
+  <div class="feedback-container">
+    <div class="card p-4 card-feedback">
+      <h4 class="text-center mb-4">Submit Feedback</h4>
+
+      <div class="mb-3">
+        <label class="form-label">Doctor</label>
+        <select class="form-select" id="doctorId">
+          <option value="doctor1">Skin Specialist</option>
+          <option value="doctor2">Dental Specialist</option>
+          <option value="doctor3">Nutrition Specialist</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Rating (1-5)</label>
+        <input type="number" class="form-control" id="rating" min="1" max="5">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Comments</label>
+        <textarea class="form-control" id="comments" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-success w-100" id="submitBtn">Submit Feedback</button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="../js/patient_feedback.js"></script>
+</body>
+</html>

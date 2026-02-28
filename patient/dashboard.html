@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Dashboard | MediConnect</title>
+
+  <link href="../css/patient_dashboard.css" rel="stylesheet">
+</head>
+
+<body class="dashboard-page">
+
+<!-- ================= SIDEBAR ================= -->
+<div class="sidebar">
+  <a href="#" class="sidebar-brand">
+    <span>MediConnect</span>
+  </a>
+
+  <div class="sidebar-nav">
+    <a href="#" class="nav-item active">
+      <span class="nav-item-icon">🏠</span>
+      <span>Dashboard</span>
+    </a>
+
+    <a href="regular_appointment.html" class="nav-item">
+      <span class="nav-item-icon">📅</span>
+      <span>Book Appointment</span>
+    </a>
+
+    <a href="upload_report.html" class="nav-item">
+      <span class="nav-item-icon">📄</span>
+      <span>Upload Reports</span>
+    </a>
+
+    <a href="feedback.html" class="nav-item">
+      <span class="nav-item-icon">⭐</span>
+      <span>Feedback</span>
+    </a>
+  </div>
+
+  <div class="sidebar-footer">
+    <button class="logout-btn" onclick="logout()">
+      <span>Logout</span>
+    </button>
+  </div>
+</div>
+
+
+<!-- ================= MAIN CONTENT ================= -->
+<div class="main-content">
+
+  <!-- Header -->
+  <div class="page-header">
+    <h1 class="page-title">Welcome, <span>Patient</span></h1>
+
+    <div class="user-info">
+      <div class="user-avatar">P</div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-header">
+        <div>
+          <div class="stat-value" id="totalAppointments">0</div>
+          <div class="stat-label">Total Appointments</div>
+        </div>
+        <div class="stat-icon primary">📅</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-header">
+        <div>
+          <div class="stat-value" id="uploadedReports">0</div>
+          <div class="stat-label">Uploaded Reports</div>
+        </div>
+        <div class="stat-icon success">📄</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-header">
+        <div>
+          <div class="stat-value" id="givenFeedbacks">0</div>
+          <div class="stat-label">Feedbacks Given</div>
+        </div>
+        <div class="stat-icon warning">⭐</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Upcoming Appointments -->
+  <div class="content-card">
+    <div class="card-header">
+      <h3 class="card-title">Upcoming Appointments</h3>
+    </div>
+
+    <div class="card-body">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Patient ID</th>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="appointmentsTable">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- Shared Reports -->
+  <div class="content-card">
+    <div class="card-header">
+      <h3 class="card-title">Shared Reports</h3>
+    </div>
+
+    <div class="card-body">
+      <div id="dashboardShareSection" class="report-thumb-grid">
+        <!-- JS will populate thumbnails as fixed-size cards -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Feedback Table -->
+  <div class="content-card">
+    <div class="card-header">
+      <h3 class="card-title">Your Feedback</h3>
+    </div>
+
+    <div class="card-body">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Doctor</th>
+            <th>Rating</th>
+            <th>Comments</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="feedbackTableBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer style="margin-top:2rem;text-align:center;color:#64748b;">
+    © 2026 MediConnect | All Rights Reserved
+  </footer>
+
+</div>
+
+
+<!-- Image Preview Modal -->
+<div id="dashboardImageModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;">
+  <div style="position:relative;max-width:90%;max-height:90%;">
+    <img id="dashboardModalImage" src="" alt="Preview" style="max-width:100%;max-height:85vh;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.5);">
+    <button onclick="closeDashboardModal()" style="position:absolute;top:-16px;right:-16px;background:#ef4444;color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1.2rem;cursor:pointer;line-height:1;">×</button>
+  </div>
+</div>
+
+<script src="../js/patient_dashboard.js"></script>
+
+</body>
+</html>

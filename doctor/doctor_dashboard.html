@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Dashboard | MediConnect</title>
+    <link rel="stylesheet" href="../css/doctor_dashboard.css">
+</head>
+<body class="dashboard-page">
+
+<!-- ================= SIDEBAR ================= -->
+<div class="sidebar">
+    <a href="#" class="sidebar-brand">
+        <span>MediConnect</span>
+    </a>
+
+    <div class="sidebar-nav">
+        <a href="#" class="nav-item active">
+            <span class="nav-item-icon">🏠</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="prescription.html" class="nav-item">
+            <span class="nav-item-icon">📝</span>
+            <span>Create Prescription</span>
+        </a>
+
+        <a href="medical_report.html" class="nav-item">
+            <span class="nav-item-icon">📄</span>
+            <span>Medical Reports</span>
+        </a>
+
+        <a href="appointments.html" class="nav-item">
+            <span class="nav-item-icon">📅</span>
+            <span>Today's Appointments</span>
+        </a>
+    </div>
+
+    <div class="sidebar-footer">
+        <button class="logout-btn" onclick="logout()">
+            <span>🚪</span>
+            <span>Logout</span>
+        </button>
+    </div>
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
+<div class="main-content">
+
+    <!-- Header -->
+    <div class="page-header">
+        <h1 class="page-title">Welcome, <span>Doctor</span></h1>
+
+        <div class="user-info">
+            <div class="user-avatar">D</div>
+        </div>
+    </div>
+
+    <!-- Dashboard Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-value">Prescription</div>
+                    <div class="stat-label">Create Prescription</div>
+                </div>
+                <div class="stat-icon primary">📝</div>
+            </div>
+            <div>
+                <button class="action-btn primary" onclick="navigateTo('prescription.html')">Open</button>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-value">Reports</div>
+                    <div class="stat-label">Medical Reports</div>
+                </div>
+                <div class="stat-icon success">📄</div>
+            </div>
+            <div>
+                <button class="action-btn success" onclick="navigateTo('medical_report.html')">Open</button>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-value">Appointments</div>
+                    <div class="stat-label">Today's Schedule</div>
+                </div>
+                <div class="stat-icon info">📅</div>
+            </div>
+            <div>
+                <button class="action-btn info" onclick="navigateTo('appointments.html')">View</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="../js/doctor.js"></script>
+</body>
+</html>

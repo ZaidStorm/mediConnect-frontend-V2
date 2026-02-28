@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Non-Regular Appointments</title>
+  <link href="../css/admin_non_regular_appointment.css" rel="stylesheet">
+</head>
+<body class="admin-nonregular-page">
+<div class="container mt-5">
+  <h2>Non-Regular Appointments</h2>
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Patient</th>
+        <th>Doctor</th>
+        <th>Date</th>
+        <th>Time Slot</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="nonRegularBody">
+      <tr><td colspan="5">Loading...</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+const token = localStorage.getItem("token");
+if(!token) { alert("Please login"); window.location.href = "/admin/login.html"; }
+
+async function loadNonRegular() {
+  const res = await fetch("/api/appointments/non-regular", { headers: { "Authorization": "Bearer " + token } });
+  const data = await res.json();
+  const tbody = document.getElementById("nonRegularBody");
+  tbody.innerHTML = "";
+
+  if(!data.appointments.length) {
+    tbody.innerHTML = "<tr><td colspan='5'>No non-regular appointments</td></tr>";
+    return;
+  }
+
+  data.appointments.forEach(app => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${app.patientId.name}</td>
+      <td>${app.doctorId.name}</td>
+      <td>${new Date(app.date).toLocaleDateString()}</td>
+      <td>${app.timeSlot}</td>
+      <td>${app.status}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+loadNonRegular();
+</script>
+</body>
+</html>
